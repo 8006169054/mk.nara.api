@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>mk.nara</groupId>
 	<artifactId>mk.nara.api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>mk.nara.api</name>
 	<description>mk.nara</description>
 	<properties>
@@ -54,7 +54,6 @@
 		<dependency>
 		    <groupId>commons-codec</groupId>
 		    <artifactId>commons-codec</artifactId>
-		    <version>1.16.0</version>
 		</dependency>
 		<!--   #########################   Core                             -->
 		<dependency>
@@ -196,6 +195,20 @@
 	</repositories>
 	
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>message/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources${env}</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -212,4 +225,35 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<env></env>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>-dev</env>
+			</properties>
+			<build>
+	       		<finalName>mk.nara.api.dev</finalName>
+	    	</build>
+		</profile>
+		
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env>-prod</env>
+			</properties>
+			<build>
+	       		<finalName>mk.nara.api</finalName>
+	    	</build>
+		</profile>
+	</profiles>
+	
 </project>
