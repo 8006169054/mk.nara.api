@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true" packagingData="true" scan="true" scanPeriod="30">
+
+	<!-- logback이 구동될때 logback 상태를 확인할 수 있습니다. -->
+	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d [%thread] %level [%c] %m%n</pattern>
+		</layout>
+	</appender>
+
+	<logger name="kainos" level="debug" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="p6spy" level="debug" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="org.springframework" level="debug" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="org.hibernate" level="error" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="com.zaxxer" level="error" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="com.ulisesbocchio" level="error" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="org.apache" level="error" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	<logger name="com.amazonaws" level="error" additivity="false" >
+		<appender-ref ref="Console" />
+	</logger>
+	
+	<root level="error">
+		<appender-ref ref="Console" />
+	</root>
+
+</configuration>

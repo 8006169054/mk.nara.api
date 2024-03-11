@@ -1,0 +1,20 @@
+### 기능명(common,user,booking).액션명(email.address.valid) 등
+#common:
+#    system.error:
+#        message: 시스템 오류 발생하였습니다. 관리자에게 문의해주세요.
+#        type: E
+#    email.address.valid:
+#        message: 메일주소를 확인해주세요.{0}
+#        type: E
+#    login.authority.valid:
+#        message: You do not have access rights.
+#        type: E
+#
+#open.order:
+#    business.valid:
+#        message: '{0} 상품은 {1}개 주문이 가능합니다.'
+#        type: E
+#    business.salecompleted:
+#        message: '{0} 상품이 품절되었습니다.'
+#        type: E
+#
