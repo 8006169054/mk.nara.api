@@ -29,7 +29,7 @@ default.datasource:
       driver-class-name: org.postgresql.Driver
       jdbcUrl: jdbc:postgresql://nara-market-dev.cjuu688y685g.ap-northeast-2.rds.amazonaws.com:5432/postgres
       username: postgres
-      password: dnekdxkdxkd1234
+      password: rKsSrPZDY7JWRos9qyg8
       hikari:
         auto-commit: false
         connection-test-query: SELECT 1
@@ -40,6 +40,8 @@ kainos:
   web:
     cors:
       credentials: true
+      responseheaders: Authorization
+      
   ## http response body format 사용
   response:
     body:
