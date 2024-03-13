@@ -44,7 +44,6 @@ public class ManagerManagementController {
 	 */
 	@PutMapping(value = "api/manager")
 	public ResponseEntity<?> modifyManager(@KainosSession SessionDto session, @RequestBody CommonUser paramData) throws Exception {
-		paramData.setMobilePhoneNumber(session.getMobilePhoneNumber());
 		service.modifyManager(paramData);
 		return KainosResponseEntity.noneData();
 	}
