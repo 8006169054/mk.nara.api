@@ -27,9 +27,12 @@ spring:
 
 default.datasource:
       driver-class-name: org.postgresql.Driver
-      jdbcUrl: jdbc:postgresql://nara-market-dev.cjuu688y685g.ap-northeast-2.rds.amazonaws.com:5432/postgres
+      jdbcUrl: jdbc:postgresql://localhost:5432/naramarket
       username: postgres
-      password: rKsSrPZDY7JWRos9qyg8
+      password: qwer1234
+#      jdbcUrl: jdbc:postgresql://nara-market-dev.cjuu688y685g.ap-northeast-2.rds.amazonaws.com:5432/postgres
+#      username: postgres
+#      password: rKsSrPZDY7JWRos9qyg8
       hikari:
         auto-commit: false
         connection-test-query: SELECT 1
