@@ -3,6 +3,7 @@ package mk.nara.application.setting.address;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,6 +47,20 @@ public class AddressManagementController {
 	public ResponseEntity<?> delete(@KainosSession SessionDto session, @RequestBody AddressManagement paramData) throws Exception {
 		paramData.setMobilePhoneNumber(session.getMobilePhoneNumber());
 		service.delete(paramData);
+		return KainosResponseEntity.noneData();
+	}
+	
+	/**
+	 * 
+	 * @param session
+	 * @param paramData
+	 * @return
+	 * @throws Exception
+	 */
+	@PatchMapping(value = "api/address")
+	public ResponseEntity<?> update(@KainosSession SessionDto session, @RequestBody AddressManagement paramData) throws Exception {
+		paramData.setMobilePhoneNumber(session.getMobilePhoneNumber());
+		service.update(paramData);
 		return KainosResponseEntity.noneData();
 	}
 	

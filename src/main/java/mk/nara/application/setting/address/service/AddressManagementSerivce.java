@@ -32,6 +32,16 @@ public class AddressManagementSerivce {
 	 * @throws Exception
 	 */
 	@Transactional(transactionManager = KainosKey.DBConfig.TransactionManager.Default)
+	public void update(AddressManagement paramData) {
+		repository.update(paramData);
+	}
+	
+	/**
+	 * 
+	 * @param paramData
+	 * @throws Exception
+	 */
+	@Transactional(transactionManager = KainosKey.DBConfig.TransactionManager.Default)
 	public void delete(AddressManagement paramData) {
 		repository.delete(paramData);
 	}

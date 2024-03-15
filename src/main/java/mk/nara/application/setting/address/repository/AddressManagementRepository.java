@@ -33,6 +33,18 @@ public class AddressManagementRepository extends KainosRepositorySupport {
 	 * 
 	 * @param paramData
 	 */
+	public void update(AddressManagement paramData) {
+		update(addressManagement)
+		.set(addressManagement.groupName, paramData.getGroupName())
+		.where(addressManagement.mobilePhoneNumber.eq(paramData.getMobilePhoneNumber())
+		.and(addressManagement.addressName.eq(paramData.getAddressName()))
+		).execute();
+	}
+	
+	/**
+	 * 
+	 * @param paramData
+	 */
 	public void delete(AddressManagement paramData) {
 		delete(addressManagement)
 		.where(addressManagement.mobilePhoneNumber.eq(paramData.getMobilePhoneNumber())
