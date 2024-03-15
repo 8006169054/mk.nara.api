@@ -29,7 +29,8 @@ public class AddressManagementController {
 	 * @throws Exception
 	 */
 	@PostMapping(value = "api/address")
-	public ResponseEntity<?> creationManager(@KainosSession SessionDto session, @RequestBody AddressManagement paramData) throws Exception {
+	public ResponseEntity<?> creation(@KainosSession SessionDto session, @RequestBody AddressManagement paramData) throws Exception {
+		paramData.setMobilePhoneNumber(session.getMobilePhoneNumber());
 		service.creation(paramData);
 		return KainosResponseEntity.noneData();
 	}
@@ -55,7 +56,7 @@ public class AddressManagementController {
 	 * @throws Exception
 	 */
 	@GetMapping(value = "api/address")
-	public ResponseEntity<?> findManager(@KainosSession SessionDto session, @RequestParam String addressName) throws Exception {
+	public ResponseEntity<?> find(@KainosSession SessionDto session, @RequestParam String addressName) throws Exception {
 		return KainosResponseEntity.builder().build()
 				.addData(service.find(
 						AddressManagement.builder().addressName(addressName).build()
