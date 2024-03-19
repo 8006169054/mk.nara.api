@@ -1,6 +1,6 @@
 package mk.nara.common.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,17 +16,19 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderMaster {
+public class OrderProduct {
 	
 	@Id
 	private String mobilePhoneNumber;
 	@Id
 	private String pathVariable;
-	private String orderName;
-	private String minimumAmount;
-	private LocalDateTime dueDate;
-	private LocalDateTime deliveryDate;
-	private LocalDateTime createDate;
+	@Id
+	private int seq;
+	private String productName;
+	private String priceProduct;
+	private String productQuantity;
+	private String orderQuantity;
+	private LocalDate createDate;
 	
 	
 }
