@@ -26,6 +26,7 @@ public class OpenController {
 		return KainosResponseEntity.builder().build()
 				.addData("findOrderProduct", service.findOrderProduct(pathVariable))
 				.addData("findOrder", service.findOrder(pathVariable))
+				.addData("findAddr", service.findAddr(pathVariable))
 				.colse();
 	}
 	

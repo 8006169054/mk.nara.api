@@ -30,4 +30,9 @@ public class OpenSerivce {
 		return repository.findOrder(pathVariable);
 	}
 	
+	@Transactional(readOnly = true)
+	public List<String> findAddr(String pathVariable){
+		return repository.findAddr(pathVariable);
+	}
+	
 }

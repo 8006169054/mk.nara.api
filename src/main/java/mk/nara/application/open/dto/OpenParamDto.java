@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import kainos.framework.utils.KainosDateUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -49,5 +48,5 @@ public class OpenParamDto {
 		String productQuantity;
 		String orderQuantity;
 	}
-	
+
 }

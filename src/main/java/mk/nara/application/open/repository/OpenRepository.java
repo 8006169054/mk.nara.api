@@ -1,5 +1,6 @@
 package mk.nara.application.open.repository;
 
+import static mk.nara.common.entity.QAddressManagement.addressManagement;
 import static mk.nara.common.entity.QOrderMaster.orderMaster;
 import static mk.nara.common.entity.QOrderProduct.orderProduct;
 
@@ -11,6 +12,7 @@ import com.querydsl.core.types.Projections;
 
 import kainos.framework.data.querydsl.support.repository.KainosRepositorySupport;
 import mk.nara.application.open.dto.OpenParamDto;
+import mk.nara.common.entity.OrderMaster;
 
 @Repository
 public class OpenRepository extends KainosRepositorySupport {
@@ -41,6 +43,24 @@ public class OpenRepository extends KainosRepositorySupport {
 				.from(orderMaster)
 				.where(orderMaster.pathVariable.eq(pathVariable))
 				.fetchOne();
+	}
+	
+	/**
+	 * 
+	 * @param pathVariable
+	 * @return
+	 */
+	public List<String> findAddr(String pathVariable){
+		String mobilePhoneNumber = select(orderMaster.mobilePhoneNumber)
+				.from(orderMaster)
+				.where(orderMaster.pathVariable.eq(pathVariable))
+				.fetchOne();
+		return select(
+				 addressManagement.addressName
+				)
+				.from(addressManagement)
+				.where(addressManagement.mobilePhoneNumber.eq(mobilePhoneNumber))
+				.fetch();
 	}
 	
 }
